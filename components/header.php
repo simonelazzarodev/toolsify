@@ -20,7 +20,6 @@
         align-items: center;
         background-color: var(--header-background);
         height: 100px;
-        padding: 0 16px;
     }
 
     .logo-header {
