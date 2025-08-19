@@ -41,6 +41,16 @@
             <p>© 2025 ToolSify – All rights reserved.</p>
         </div>
     </div>
+
+    <!-- Tracker Arrow -->
+    <button id="scrollTop" class="scrolltop" aria-label="Torna all'inizio" title="Torna su">
+        <svg class="progress" viewBox="0 0 40 40" aria-hidden="true">
+            <circle class="track" cx="20" cy="20" r="16"></circle>
+            <circle class="fill" cx="20" cy="20" r="16"></circle>
+        </svg>
+        <span class="arrow" aria-hidden="true">↑</span>
+    </button>
+
 </footer>
 
 <style>
@@ -182,4 +192,141 @@
         box-shadow: 0 0 0 2px var(--brand);
         border-radius: 4px;
     }
+
+    /* Tracker Arrow */
+    .scrolltop {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        width: 56px;
+        height: 56px;
+        border: 0;
+        border-radius: 50%;
+        background: #fff;
+        /* sfondo bianco */
+        color: #0d6efd;
+        /* colore anello/freccia */
+        box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        z-index: 9999;
+
+        opacity: 0;
+        transform: scale(.9);
+        pointer-events: none;
+        transition: opacity .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+
+    .scrolltop.show {
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+    }
+
+    .scrolltop:focus-visible {
+        outline: 3px solid rgba(13, 110, 253, .5);
+        outline-offset: 2px;
+    }
+
+    .scrolltop:hover {
+        box-shadow: 0 10px 28px rgba(0, 0, 0, .16);
+    }
+
+    .scrolltop .arrow {
+        font-size: 20px;
+        line-height: 1;
+        position: relative;
+        z-index: 2;
+        /* sopra all’SVG */
+    }
+
+    /* Anello di progresso */
+    .scrolltop .progress {
+        position: absolute;
+        inset: 0;
+        transform: rotate(-90deg);
+        /* parte dalle ore 12 */
+    }
+
+    .scrolltop .track,
+    .scrolltop .fill {
+        fill: none;
+        stroke-width: 4;
+        vector-effect: non-scaling-stroke;
+    }
+
+    .scrolltop .track {
+        stroke: #e9ecef;
+        /* traccia di sfondo */
+    }
+
+    .scrolltop .fill {
+        stroke: currentColor;
+        /* usa il color del bottone */
+        stroke-linecap: butt;
+        /* punta “piatta” per chiusura perfetta */
+        /* Importante: nessuna inizializzazione conflittuale qui
+     (niente stroke-dasharray / stroke-dashoffset in CSS) */
+    }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('scrollTop');
+        if (!btn) return;
+
+        const fill = btn.querySelector('.fill');
+        const r = 16;                           // raggio del cerchio nell'SVG
+        const C = 2 * Math.PI * r;              // circonferenza
+
+        // Inizializzazione progresso: cerchio vuoto che parte da ore 12
+        fill.style.strokeDasharray = `${C}`;
+        fill.style.strokeDashoffset = `${C}`;
+
+        const showThreshold = 100; // px di scroll prima di mostrare il bottone
+
+        function progress() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+            const docHeight = Math.max(
+                document.body.scrollHeight, document.documentElement.scrollHeight,
+                document.body.offsetHeight, document.documentElement.offsetHeight,
+                document.body.clientHeight, document.documentElement.clientHeight
+            );
+            const winHeight = window.innerHeight || document.documentElement.clientHeight;
+            const maxScroll = Math.max(docHeight - winHeight, 1);
+            const ratio = Math.min(Math.max(scrollTop / maxScroll, 0), 1); // 0..1
+
+            // Aggiorna l’anello: da vuoto (offset=C) a pieno (offset=0)
+            const offset = C * (1 - ratio);
+            fill.style.strokeDashoffset = `${offset}`;
+
+            // Mostra/nascondi bottone
+            if (scrollTop > showThreshold) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+        }
+
+        // Click -> torna in cima (rispetta prefers-reduced-motion)
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced) {
+                window.scrollTo(0, 0);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+
+        // Aggiorna su scroll e resize
+        window.addEventListener('scroll', progress, { passive: true });
+        window.addEventListener('resize', progress);
+
+        // Primo calcolo
+        progress();
+    });
+
+
+</script>

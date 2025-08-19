@@ -27,7 +27,7 @@
             <p class="hero-tagline">Free • Unlimited usage • Works on any device</p>
         </div>
         <div class="hero-cta">
-            <a href="#" class="hero-btn-1">Explore All Tools</a>
+            <a href="#tools-section" class="hero-btn-1">Explore All Tools</a>
             <a href="#" class="hero-btn-2">Learn More</a>
         </div>
     </div>
@@ -55,7 +55,7 @@
 
     </section>
 
-    <section class="tools-section">
+    <section class="tools-section" id="tools-section">
 
         <div class=" tools-container">
             <div class="tool-item file-tools">
