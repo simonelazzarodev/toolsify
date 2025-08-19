@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -49,7 +50,7 @@ a {
   font-weight: bold;
 }
 
-p{
+p {
   font-family: 'Inter', sans-serif;
 }
 
@@ -160,6 +161,15 @@ a {
   display: none;
 }
 
+.tools-section .tool-item[hidden] {
+  display: none !important;
+}
+
+.btn-filters .filter-btn.active {
+  outline: 2px solid currentColor;
+  filter: brightness(0.95);
+}
+
 @media (min-width: 768px) {
   .filter-select {
     display: none;
@@ -200,11 +210,11 @@ a {
 
 /* START TOOL SECTION */
 
-.tools-section{
+.tools-section {
   padding-bottom: 50px;
 }
 
-.tools-container{
+.tools-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -223,7 +233,7 @@ a {
   gap: 1rem;
 }
 
-.tool-btn{
+.tool-btn {
   background-color: var(--btn-blue);
   width: 125px;
   color: white;

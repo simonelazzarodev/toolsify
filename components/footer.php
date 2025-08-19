@@ -182,10 +182,4 @@
         box-shadow: 0 0 0 2px var(--brand);
         border-radius: 4px;
     }
-
-    @media (prefers-reduced-motion: reduce) {
-        * {
-            scroll-behavior: auto;
-        }
-    }
 </style>
