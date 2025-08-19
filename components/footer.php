@@ -46,7 +46,7 @@
     <button id="scrollTop" class="scrolltop" aria-label="Torna all'inizio" title="Torna su">
         <svg class="progress" viewBox="0 0 40 40" aria-hidden="true">
             <circle class="track" cx="20" cy="20" r="16"></circle>
-            <circle class="fill" cx="20" cy="20" r="16"></circle>
+            <circle class="fill" cx="20" cy="20" r="16" pathLength="1"></circle>
         </svg>
         <span class="arrow" aria-hidden="true">↑</span>
     </button>
@@ -193,7 +193,7 @@
         border-radius: 4px;
     }
 
-    /* Tracker Arrow */
+    /* START Tracker Arrow */
     .scrolltop {
         position: fixed;
         right: 20px;
@@ -238,15 +238,12 @@
         line-height: 1;
         position: relative;
         z-index: 2;
-        /* sopra all’SVG */
     }
 
-    /* Anello di progresso */
     .scrolltop .progress {
         position: absolute;
         inset: 0;
         transform: rotate(-90deg);
-        /* parte dalle ore 12 */
     }
 
     .scrolltop .track,
@@ -258,17 +255,14 @@
 
     .scrolltop .track {
         stroke: #e9ecef;
-        /* traccia di sfondo */
     }
 
     .scrolltop .fill {
         stroke: currentColor;
-        /* usa il color del bottone */
         stroke-linecap: butt;
-        /* punta “piatta” per chiusura perfetta */
-        /* Importante: nessuna inizializzazione conflittuale qui
-     (niente stroke-dasharray / stroke-dashoffset in CSS) */
     }
+
+    /* END Tracker Arrow */
 </style>
 
 <script>
@@ -277,39 +271,36 @@
         if (!btn) return;
 
         const fill = btn.querySelector('.fill');
-        const r = 16;                           // raggio del cerchio nell'SVG
-        const C = 2 * Math.PI * r;              // circonferenza
+        const r = 16;
+        const C = 2 * Math.PI * r;
 
-        // Inizializzazione progresso: cerchio vuoto che parte da ore 12
-        fill.style.strokeDasharray = `${C}`;
-        fill.style.strokeDashoffset = `${C}`;
+        const EPS = 1;                      
+        fill.style.strokeDashoffset = '0';   
+        fill.style.strokeDasharray = `0 ${1 + EPS}`; 
 
-        const showThreshold = 100; // px di scroll prima di mostrare il bottone
+        const showThreshold = 25;
 
         function progress() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
-            const docHeight = Math.max(
-                document.body.scrollHeight, document.documentElement.scrollHeight,
-                document.body.offsetHeight, document.documentElement.offsetHeight,
-                document.body.clientHeight, document.documentElement.clientHeight
-            );
-            const winHeight = window.innerHeight || document.documentElement.clientHeight;
-            const maxScroll = Math.max(docHeight - winHeight, 1);
-            const ratio = Math.min(Math.max(scrollTop / maxScroll, 0), 1); // 0..1
+            const root = document.scrollingElement || document.documentElement;
 
-            // Aggiorna l’anello: da vuoto (offset=C) a pieno (offset=0)
-            const offset = C * (1 - ratio);
-            fill.style.strokeDashoffset = `${offset}`;
+            const scrollTop = root.scrollTop;
+            const maxScroll = Math.max(root.scrollHeight - root.clientHeight, 1);
 
-            // Mostra/nascondi bottone
-            if (scrollTop > showThreshold) {
-                btn.classList.add('show');
+            let frac = scrollTop / maxScroll;
+            if (frac < 0) frac = 0;
+            if (frac > 1) frac = 1;
+
+            if (frac >= 0.999) {
+                fill.style.strokeDasharray = `${1 + EPS} 0`;     
+            } else if (frac <= 0.001) {
+                fill.style.strokeDasharray = `0 ${1 + EPS}`;     
             } else {
-                btn.classList.remove('show');
+                fill.style.strokeDasharray = `${frac} ${1 + EPS}`;
             }
+
+            btn.classList.toggle('show', scrollTop > showThreshold);
         }
 
-        // Click -> torna in cima (rispetta prefers-reduced-motion)
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -320,13 +311,10 @@
             }
         });
 
-        // Aggiorna su scroll e resize
         window.addEventListener('scroll', progress, { passive: true });
         window.addEventListener('resize', progress);
 
-        // Primo calcolo
         progress();
     });
-
 
 </script>
