@@ -1,12 +1,12 @@
 <header>
     <div class="link-header">
-        <a href="#">ALL TOOLS</a>
+        <a href="#tools-section">ALL TOOLS</a>
         <a href="#">BLOG</a>
     </div>
-    <img src="images/logo.png" alt="toolsify-logo" class="logo-header" width="100" height="100">
+    <img src="images/logo.png" alt="toolsify-logo" class="logo-header" width="150" height="75">
     <div class="link-header">
-        <a href="#">ABOUT</a>
-        <a href="#" class="contact-header hero-btn-2">CONTACT</a>
+        <a href="#about-us">ABOUT</a>
+        <a href="#contact" class="contact-header hero-btn-2">CONTACT</a>
     </div>
     <div class="hamburger-btn">
         <img src="images/icons/hamburger-menu.svg" alt="hamburger-menu" width="30" height="30">
@@ -23,8 +23,8 @@
     }
 
     .logo-header {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 75px;
     }
 
     .link-header {

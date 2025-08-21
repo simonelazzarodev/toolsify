@@ -2,7 +2,7 @@
     <div class="footer__inner">
         <div class="footer__top">
             <div class="footer__brand">
-                <img src="images/logo.png" alt="Toolsify Logo" class="footer__logo" width="100" height="100">
+                <img src="images/logo.png" alt="Toolsify Logo" class="footer__logo" width="200" height="100">
                 <p class="footer__tagline">
                     Free tools to manage your files, images, audio and videos online.
                 </p>
@@ -11,9 +11,9 @@
             <nav class="footer__col" aria-label="Quick Links">
                 <h3 class="footer__title">Quick Links</h3>
                 <ul class="footer__list">
-                    <li><a href="#">All Tools</a></li>
+                    <li><a href="#tools-section">All Tools</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#about-us">About Us</a></li>
                 </ul>
             </nav>
 
@@ -30,7 +30,7 @@
                 <h3 class="footer__title">Contact Us</h3>
                 <ul class="footer__list">
                     <li><a href="mailto:hello@toolsify.com">Send us an Email</a></li>
-                    <li><a href="#">Fill out the form</a></li>
+                    <li><a href="#contact">Fill out the form</a></li>
                 </ul>
             </nav>
         </div>

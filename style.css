@@ -82,12 +82,14 @@ h3 {
 }
 
 @media (min-width: 1024px) {
-  h1{
+  h1 {
     font-size: 2.5em;
   }
+
   h2 {
     font-size: 1.75em;
   }
+
   h3 {
     font-size: 1.5em;
   }
@@ -114,7 +116,7 @@ h3 {
   gap: 24px;
 }
 
-.hero-tagline{
+.hero-tagline {
   font-size: 0.75em;
 }
 
@@ -302,7 +304,8 @@ h3 {
     max-width: 1200px;
     margin: 0 auto;
   }
-  .tool-item{
+
+  .tool-item {
     width: 95%;
   }
 
@@ -447,3 +450,53 @@ textarea::placeholder {
     margin: 0 auto;
   }
 }
+
+/* END CONTACT SECTION */
+
+/* START ABOUT US SECTION */
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 2.5em;
+}
+
+.about-logo {
+  width: 250px;
+  height: 125px;
+}
+
+.about-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.about-group img {
+  width: 250px;
+  height: auto;
+}
+
+.ending-cta {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1em;
+}
+
+@media (min-width: 768px) {
+  .about-group {
+    flex-direction: row !important;
+  }
+}
+
+/* END ABOUT US SECTION */
