@@ -6,7 +6,7 @@
     <img src="images/logo.png" alt="toolsify-logo" class="logo-header" width="100" height="100">
     <div class="link-header">
         <a href="#">ABOUT</a>
-        <a href="#" class="contact-header">CONTACT</a>
+        <a href="#" class="contact-header hero-btn-2">CONTACT</a>
     </div>
     <div class="hamburger-btn">
         <img src="images/icons/hamburger-menu.svg" alt="hamburger-menu" width="30" height="30">
@@ -29,6 +29,11 @@
 
     .link-header {
         display: none;
+        align-items: center;
+    }
+
+    .link-header .hero-btn-2{
+        width : 150px !important;
     }
 
     @media (min-width:1024px) {

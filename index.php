@@ -131,8 +131,52 @@
 
     </section>
 
+    <div class="divider"></div>
+
+    <section class="contact">
+        <div class="contact-text">
+            <h2>Contact Us</h2>
+            <h3>Have questions, suggestions or partnership ideas?<br>Reach out to us anytime.</h3>
+            <p>Alternatively, you can reach us at <a href="mailto:support@toolsify.com">support@toolsify.com</a></p>
+        </div>
+        <div class="form-img">
+            <img src="images/formImg.png" alt="Contact Form Image">
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name / Company Name*</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name or company name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone (optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message*</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+                    </div>
+
+                    <div class="privacy-policy">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <span>By submitting, you agree to our <a href="privacy-policy.php" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Contact Us Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <?php include 'components/footer.php'; ?>
 
+    <script src="tracker.js" defer></script>
     <script src="script.js" defer></script>
 </body>
 
