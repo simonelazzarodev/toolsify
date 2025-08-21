@@ -142,7 +142,7 @@
         <div class="form-img">
             <img src="images/formImg.png" alt="Contact Form Image">
             <div class="contact-form">
-                <form>
+                <form action="form-validator.php" method="post" novalidate>
                     <div class="form-group">
                         <label for="name">Name / Company Name*</label>
                         <input type="text" id="name" name="name" placeholder="Enter your name or company name" required>
@@ -160,12 +160,14 @@
 
                     <div class="form-group">
                         <label for="message">Message*</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+                        <textarea id="message" name="message" rows="4" placeholder="Enter your message"
+                            required></textarea>
                     </div>
 
                     <div class="privacy-policy">
-                            <input type="checkbox" id="privacy" name="privacy" required>
-                            <span>By submitting, you agree to our <a href="privacy-policy.php" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <span>By submitting, you agree to our <a href="privacy-policy.php" target="_blank"
+                                rel="noopener noreferrer">Privacy Policy</a></span>
                     </div>
 
                     <button type="submit" class="submit-btn">Contact Us Now</button>
@@ -178,6 +180,51 @@
 
     <script src="tracker.js" defer></script>
     <script src="script.js" defer></script>
-</body>
+
+    <!-- Form Validation Script -->
+    <script defer>
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', (e) => {
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                form.reportValidity();
+                return;
+            }
+
+            const nameEl = document.getElementById('name');
+            const nameVal = nameEl.value.trim();
+            const nameRegex = /^(?!.*\d)[A-Za-zÀ-ÖØ-öø-ÿ .,'’-]{2,}$/;
+
+            if (!nameRegex.test(nameVal)) {
+                e.preventDefault();
+                nameEl.setCustomValidity('Il nome non può contenere numeri.');
+                nameEl.reportValidity();
+            } else {
+                nameEl.setCustomValidity('');
+            }
+
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+            if (!emailRegex.test(email.value.trim())) {
+                e.preventDefault();
+                email.setCustomValidity('Inserisci una email valida nel formato xxx@xxx.xx');
+                email.reportValidity();
+            } else {
+                email.setCustomValidity('');
+            }
+
+        });
+
+        document.getElementById('name').addEventListener('input', (e) => {
+            e.target.setCustomValidity('');
+        });
+
+        document.getElementById('email').addEventListener('input', (e) => {
+            e.target.setCustomValidity('');
+        });
+    </script>
+
 
 </html>
