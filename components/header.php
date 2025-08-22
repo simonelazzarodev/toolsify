@@ -21,7 +21,9 @@
         <div class="link-menu">
             <a href="#tools-section">ALL TOOLS</a>
             <a href="#about-us">ABOUT</a>
-            <a href="#contact" class="contact-header hero-btn-2">CONTACT</a>
+        </div>
+        <div class="contact-btn">
+            <a href="#contact" class="contact-header hero-btn-2" id="contact-menu">CONTACT</a>
         </div>
     </div>
 </section>
@@ -119,11 +121,16 @@
 
     .menu-opened.is-open {
         transform: translateX(0);
-        opacity: 1;
+        opacity: 0.97;
         pointer-events: auto;
     }
 
     .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 40vh;
         width: min(720px, 90vw);
         text-align: center;
     }
@@ -134,6 +141,10 @@
         padding: .8rem 0;
         text-decoration: none;
         color: inherit;
+    }
+
+    .menu-opened .contact-header{
+        padding: 15px 35px !important;
     }
 
     .close-btn {
@@ -158,6 +169,7 @@
         const hamburgerBtn = document.querySelector('.hamburger-btn');
         const menu = document.getElementById('mobile-menu');
         const links = menu.querySelectorAll('.link-menu a');
+        const contactBtn = document.getElementById('contact-menu');
 
         const closeBtn = document.querySelector('.close-btn');
 
@@ -202,6 +214,8 @@
         });
 
         links.forEach(a => a.addEventListener('click', closeMenu));
+
+        contactBtn?.addEventListener('click', closeMenu);
 
     });
 </script>
