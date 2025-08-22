@@ -274,15 +274,13 @@
         const r = 16;
         const C = 2 * Math.PI * r;
 
-        const EPS = 1;                      
-        fill.style.strokeDashoffset = '0';   
-        fill.style.strokeDasharray = `0 ${1 + EPS}`; 
+        fill.style.strokeDasharray = C;
+        fill.style.strokeDashoffset = C;
 
         const showThreshold = 25;
 
         function progress() {
             const root = document.scrollingElement || document.documentElement;
-
             const scrollTop = root.scrollTop;
             const maxScroll = Math.max(root.scrollHeight - root.clientHeight, 1);
 
@@ -290,13 +288,7 @@
             if (frac < 0) frac = 0;
             if (frac > 1) frac = 1;
 
-            if (frac >= 0.999) {
-                fill.style.strokeDasharray = `${1 + EPS} 0`;     
-            } else if (frac <= 0.001) {
-                fill.style.strokeDasharray = `0 ${1 + EPS}`;     
-            } else {
-                fill.style.strokeDasharray = `${frac} ${1 + EPS}`;
-            }
+            fill.style.strokeDashoffset = C * (1 - frac);
 
             btn.classList.toggle('show', scrollTop > showThreshold);
         }

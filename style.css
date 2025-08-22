@@ -195,17 +195,24 @@ h3 {
   border-radius: 16px;
 }
 
-.btn-filters {
-  display: none;
-}
-
-.tools-section .tool-item[hidden] {
+.tool-item[hidden] {
   display: none !important;
 }
 
-.btn-filters .filter-btn.active {
-  outline: 2px solid currentColor;
-  filter: brightness(0.95);
+.filter-btn.is-active:first-of-type {
+  outline: 1px solid #fff;
+  transition: filter 0.3s ease;
+  filter: brightness(0.9);
+}
+
+.filter-btn.is-active {
+  outline: 1px solid #fff;
+  transition: filter 0.3s ease;
+  filter: brightness(0.9);
+}
+
+.btn-filters {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -292,7 +299,7 @@ h3 {
 
   .tool-item {
     width: 300px;
-    min-height: 320px;
+    min-height: 335px;
     display: flex;
     justify-content: space-around;
   }

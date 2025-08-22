@@ -44,13 +44,13 @@
             </select>
         </div>
 
-        <div class="btn-filters">
-            <a href="#" class="filter-btn blue-btn" data-filter="all">All Tools</a>
-            <a href="#" class="filter-btn" data-filter="file">File</a>
-            <a href="#" class="filter-btn" data-filter="image">Image</a>
-            <a href="#" class="filter-btn" data-filter="video">Video</a>
-            <a href="#" class="filter-btn" data-filter="audio">Audio</a>
-            <a href="#" class="filter-btn" data-filter="utilities">Utilities</a>
+        <div class="btn-filters" role="group" aria-label="Filtri strumenti">
+            <a href="#" class="filter-btn blue-btn" data-filter="all" aria-pressed="true">All Tools</a>
+            <a href="#" class="filter-btn" data-filter="file" aria-pressed="false">File</a>
+            <a href="#" class="filter-btn" data-filter="image" aria-pressed="false">Image</a>
+            <a href="#" class="filter-btn" data-filter="video" aria-pressed="false">Video</a>
+            <a href="#" class="filter-btn" data-filter="audio" aria-pressed="false">Audio</a>
+            <a href="#" class="filter-btn" data-filter="utilities" aria-pressed="false">Utilities</a>
         </div>
 
     </section>
@@ -180,11 +180,12 @@
         <img src="images/logo.png" alt="Logo" class="about-logo" height="250" width="125">
         <div class="about-group">
             <div class="about-text">
-            <h2>About Us</h2>
-            <p>ToolSify is a free online suite of tools designed to make file, image, audio, and video management simple
-                and accessible to everyone.
-                Fast, intuitive, and secure.</p>
-                </div>
+                <h2>About Us</h2>
+                <p>ToolSify is a free online suite of tools designed to make file, image, audio, and video management
+                    simple
+                    and accessible to everyone.
+                    Fast, intuitive, and secure.</p>
+            </div>
             <img src="images/aboutUs.png" alt="About Us" width="250" height="auto">
         </div>
 
@@ -201,8 +202,10 @@
         <div class="about-group">
             <div class="about-text">
                 <h2>Who We Are</h2>
-                <p>ToolSify was created by a passionate web developer who wanted to combine modern design, usability, and
-                    functionality into one platform. This project is also part of a professional portfolio, showcasing both
+                <p>ToolSify was created by a passionate web developer who wanted to combine modern design, usability,
+                    and
+                    functionality into one platform. This project is also part of a professional portfolio, showcasing
+                    both
                     front-end and back-end development skills.</p>
             </div>
             <img src="images/whoWeAre.png" alt="Who We Are" width="250" height="250">
@@ -214,11 +217,11 @@
             <a href="#tools-section" class="hero-btn-1">Explore All Tools</a>
         </div>
 
-</section>
+    </section>
 
     <?php include 'components/footer.php'; ?>
 
-    <script src="tracker.js" defer></script>
+    <script src="filters.js" defer></script>
     <script src="script.js" defer></script>
 
     <!-- Form Validation Script -->
