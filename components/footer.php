@@ -12,7 +12,6 @@
                 <h3 class="footer__title">Quick Links</h3>
                 <ul class="footer__list">
                     <li><a href="#tools-section">All Tools</a></li>
-                    <li><a href="#">Blog</a></li>
                     <li><a href="#about-us">About Us</a></li>
                 </ul>
             </nav>

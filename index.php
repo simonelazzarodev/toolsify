@@ -62,35 +62,35 @@
                 <img src="images/icons/file-compressor.svg" alt="File Tool Icon" width="75" height="75">
                 <h3>File Compressor</h3>
                 <p>Reduce file size while keeping original quality, perfect for faster sharing and storage.</p>
-                <a href="#" class="tool-btn">Use Tool</a>
+                <a href="in-progress.php" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item file-tools">
                 <img src="images/icons/file-merge-split.svg" alt="File Tool Icon" width="75" height="75">
                 <h3>PDF Merge & Split</h3>
                 <p>Combine multiple PDFs into one or split them in seconds with no formatting loss.</p>
-                <a href="#" class="tool-btn">Use Tool</a>
+                <a href="in-progress.php" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item file-tools">
                 <img src="images/icons/file-converter.svg" alt="File Tool Icon" width="75" height="75">
                 <h3>PDF Converter</h3>
                 <p>Convert PDFs to Word, Excel, images, and more, preserving layout and content.</p>
-                <a href="#" class="tool-btn">Use Tool</a>
+                <a href="in-progress.php" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item image-tools">
                 <img src="images/icons/img-compressor.svg" alt="Image Tool Icon" width="75" height="75">
                 <h3>Image Compressor</h3>
                 <p>Compress JPG, PNG, and WebP images while keeping high visual quality.</p>
-                <a href="#" class="tool-btn">Use Tool</a>
+                <a href="in-progress.php" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item image-tools">
                 <img src="images/icons/img-resizer.svg" alt="Image Tool Icon" width="75" height="75">
                 <h3>Image Resizer</h3>
                 <p>Resize images by pixels or proportions without losing quality.</p>
-                <a href="#" class="tool-btn">Use Tool</a>
+                <a href="in-progress.php" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item image-tools">
@@ -104,28 +104,28 @@
                 <img src="images/icons/extract-mp4.svg" alt="Audio Tool Icon" width="75" height="75">
                 <h3>Extract from MP4</h3>
                 <p>Quickly extract audio as MP3 or WAV from any MP4 video.</p>
-                <a href="#" class="tool-btn">Use Tool</a>
+                <a href="in-progress.php" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item audio-tools">
                 <img src="images/icons/font.svg" alt="Audio Tool Icon" width="75" height="75">
                 <h3>Speech to Text</h3>
                 <p>Transcribe audio or video recordings into editable text with high accuracy.</p>
-                <a href="#" class="tool-btn">Use Tool</a>
+                <a href="in-progress.php" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item video-tools">
                 <img src="images/icons/video-converter.svg" alt="Video Tool Icon" width="75" height="75">
                 <h3>Video Converter</h3>
                 <p>Convert videos to various formats (MP4, MOV, WebM) for web or mobile devices.</p>
-                <a href="#" class="tool-btn">Use Tool</a>
+                <a href="in-progress.php" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item utilities-tools">
                 <img src="images/icons/qrcode.svg" alt="Utilities Tool Icon" width="75" height="75">
                 <h3>QR Generator</h3>
                 <p>Create custom QR codes for URLs, text, contacts, and more.</p>
-                <a href="#" class="tool-btn">Use Tool</a>
+                <a href="in-progress.php" class="tool-btn">Use Tool</a>
             </div>
         </div>
 
