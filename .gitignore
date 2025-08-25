@@ -1,0 +1,23 @@
+# Composer dependencies
+/vendor/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs e cache
+*.log
+*.cache
+
+# Config locali
+.env
+.env.local
+.env.*.local
+
+# File temporanei di XAMPP o sessioni PHP
+/tmp/
+.sess*
+
+# Cartelle IDE/editor
+.vscode/
+.idea/

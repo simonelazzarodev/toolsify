@@ -125,7 +125,7 @@
                 <img src="images/icons/qrcode.svg" alt="Utilities Tool Icon" width="75" height="75">
                 <h3>QR Generator</h3>
                 <p>Create custom QR codes for URLs, text, contacts, and more.</p>
-                <a href="in-progress.php" class="tool-btn">Use Tool</a>
+                <a href="qrcode.php" class="tool-btn">Use Tool</a>
             </div>
         </div>
 

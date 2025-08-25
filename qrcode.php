@@ -112,10 +112,10 @@
     <section class="qr-code-main">
         <h1>QR Code Generator</h1>
         <h2>Create and download your QR Code instantly</h2>
-        <form id="qrForm" class="qr-form" novalidate>
+        <form id="qrForm" class="qr-form" action="qr.php" method="post">
             <div>
                 <label for="qr-content">Link</label>
-                <input id="qr-content" name="content" maxlength="2000" placeholder="Enter or paste a URL…" required>
+                <input id="qr-content" name="content" maxlength="2000" placeholder="Enter text or paste a URL…" required>
                 <small class="help">Up to 2000 characters</small>
             </div>
 

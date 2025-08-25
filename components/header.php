@@ -1,6 +1,6 @@
 <header>
     <div class="header-img">
-        <img src="images/logo.png" alt="toolsify-logo" class="logo-header" width="150" height="75">
+        <a href="index.php"><img src="images/logo.png" alt="toolsify-logo" class="logo-header" width="150" height="75"></a>
     </div>
     <div class="link-header">
         <a href="#tools-section">ALL TOOLS</a>
