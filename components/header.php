@@ -35,6 +35,7 @@
         align-items: center;
         background-color: var(--header-background);
         height: 100px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
     }
 
     .header-img {
