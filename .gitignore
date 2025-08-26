@@ -21,3 +21,6 @@ Thumbs.db
 # Cartelle IDE/editor
 .vscode/
 .idea/
+
+# To do File
+todo.txt
