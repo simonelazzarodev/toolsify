@@ -1,11 +1,11 @@
 <header>
     <div class="header-img">
-        <a href="index.php"><img src="<?= IMG_URL ?>logo.png" alt="toolsify-logo" class="logo-header" width="150" height="75"></a>
+        <a href="<?= BASE_URL ?>"><img src="<?= IMG_URL ?>logo.png" alt="toolsify-logo" class="logo-header" width="150" height="75"></a>
     </div>
     <div class="link-header">
-        <a href="#tools-section">ALL TOOLS</a>
-        <a href="#about-us">ABOUT</a>
-        <a href="#contact" class="contact-header hero-btn-2">CONTACT</a>
+        <a href="<?= BASE_URL ?>index.php#tools-section">ALL TOOLS</a>
+        <a href="<?= BASE_URL ?>index.php#about-us">ABOUT</a>
+        <a href="<?= BASE_URL ?>index.php#contact" class="contact-header hero-btn-2">CONTACT</a>
     </div>
     <div class="hamburger-btn" aria-controls="mobile-menu" aria-expanded="false" role="button" tabindex="0">
         <img src="<?= IMG_URL ?>icons/hamburger-menu.svg" alt="Open menu" width="30" height="30">
@@ -19,11 +19,11 @@
             <img src="<?= IMG_URL ?>logo.png" alt="toolsify-logo" class="logo-header" width="150" height="75">
         </div>
         <div class="link-menu">
-            <a href="#tools-section">ALL TOOLS</a>
-            <a href="#about-us">ABOUT</a>
+            <a href="<?= BASE_URL ?>index.php#tools-section">ALL TOOLS</a>
+            <a href="<?= BASE_URL ?>index.php#about-us">ABOUT</a>
         </div>
         <div class="contact-btn">
-            <a href="#contact" class="contact-header hero-btn-2" id="contact-menu">CONTACT</a>
+            <a href="<?= BASE_URL ?>index.php#contact" class="contact-header hero-btn-2" id="contact-menu">CONTACT</a>
         </div>
     </div>
 </section>

@@ -1,3 +1,5 @@
+<?php require __DIR__ . '/config.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -157,7 +159,7 @@
                     decoding="async">
                 <h3>Image Resizer</h3>
                 <p>Resize images by pixels or proportions without losing quality.</p>
-                <a href="in-progress.php" class="tool-btn">Use Tool</a>
+                <a href="image-resizer/" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item image-tools">
@@ -197,7 +199,7 @@
                     decoding="async">
                 <h3>QR Generator</h3>
                 <p>Create custom QR codes for URLs, text, contacts, and more.</p>
-                <a href="qr-code/index.php" class="tool-btn">Use Tool</a>
+                <a href="qr-code/" class="tool-btn">Use Tool</a>
             </div>
         </div>
 

@@ -1,0 +1,277 @@
+<?php require __DIR__ . '/../config.php'; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Free online Image Resizer by Toolsify. Resize, compress and optimize images in JPEG, PNG or WebP format without losing quality.">
+    <meta name="keywords"
+        content="Image Resizer, Resize Images Online, Free Image Resizer, Compress Images, Optimize Images, JPEG PNG WebP, Online Image Tool">
+
+    <meta property="og:title" content="Free Online Image Resizer - Toolsify">
+    <meta property="og:description"
+        content="Resize and optimize your images online for free. Adjust width, height, format and quality instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://tuodominio.it/images/preview-image-resizer.png">
+    <meta property="og:url" content="https://tuodominio.it/image-resizer">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Image Resizer Online Free | Resize & Optimize Images | Toolsify</title>
+
+
+    <link rel="icon" type="image/x-icon" href="<?= IMG_URL ?>icons/favicon.ico">
+    <link rel="stylesheet" href="<?= CSS_URL ?>">
+    <link rel="canonical" href="https://usetoolsify.com/image-resizer/">
+
+    <!-- WebApplication (Image Resizer) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Image Resizer",
+  "url": "https://usetoolsify.com/image-resizer",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "inLanguage": "en",
+  "description": "Free online Image Resizer by Toolsify. Resize, compress and optimize images in JPEG, PNG or WebP format without losing quality.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolsify",
+    "url": "https://usetoolsify.com/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+
+    <style>
+        .intro-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            gap: 2rem;
+        }
+
+        .intro-text p {
+            font-size: 0.75em;
+            text-align: center;
+        }
+
+        .image-resizer-container {
+            margin: 2rem auto;
+            max-width: 1100px;
+            padding: 1rem;
+        }
+
+        .image-resizer-container form {
+            display: flex;
+            flex-direction: row ;
+            gap: 2rem;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .left-panel,
+        .right-panel {
+            flex: 1;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .preview-wrapper {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .preview-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .image-actions {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .image-actions button,
+        .options-buttons button {
+            padding: 0.7rem 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #0073e6;
+            color: #fff;
+            transition: background 0.2s ease;
+        }
+
+        .image-actions button:hover,
+        .options-buttons button:hover {
+            background: #005bb5;
+        }
+
+        .options-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .resize-option {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .resize-option input {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            max-width: 200px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .image-resizer-container form {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <?php include COMPONENTS_PATH . 'header.php'; ?>
+
+    <div class="intro-text">
+        <h1>Image Resizer</h1>
+        <h2>Free Online Image Resizer – Resize, Compress and Download Instantly</h2>
+        <p class="description">
+            With Toolsify’s free Image Resizer you can adjust your images in seconds. Upload a picture, set custom
+            width, height or percentage, choose the output format (JPEG, PNG or WebP), and download instantly.
+            Perfect for websites, social media, presentations, and more.
+        </p>
+    </div>
+
+    <main class="image-resizer-container">
+        <form action="image-resizer.php" method="POST" enctype="multipart/form-data" class="resizer-form">
+
+            <!-- Colonna sinistra -->
+            <div class="left-panel">
+                <img src="<?= IMG_URL ?>icons/image-resizer-icon.png" alt="Image Resizer Icon" style="width:50px;" loading="lazy" decoding="async">
+                <h2>Upload Image</h2>
+                <input type="file" name="image" accept="image/*" required>
+
+                <!-- Anteprima immagine -->
+                <div class="preview-wrapper">
+                    <img id="image-preview" src="" alt="Preview" style="display:none;">
+                </div>
+
+                <!-- Pulsanti gestione immagine -->
+                <div class="image-actions" style="display:none;">
+                    <button type="button" id="upload-another">Upload Another Image</button>
+                    <button type="button" id="delete-image">Delete Image</button>
+                </div>
+
+                <!-- Disclaimer -->
+                <p class="disclaimer">
+                    Supported formats: <strong>JPEG, PNG, WebP</strong>.
+                </p>
+            </div>
+
+            <!-- Colonna destra -->
+            <div class="right-panel">
+                <img src="<?= IMG_URL ?>icons/img-resizer.svg" alt="Image Resizer Icon" style="width:50px;" loading="lazy" decoding="async">
+                <h2>Resize Options</h2>
+                <div class="options-buttons">
+
+                    <!-- Resize by Width -->
+                    <div class="resize-option">
+                        <label>Width (px):</label>
+                        <input type="number" name="width">
+                        <button type="submit" name="mode" value="width">Resize by Width</button>
+                    </div>
+
+                    <!-- Resize by Height -->
+                    <div class="resize-option">
+                        <label>Height (px):</label>
+                        <input type="number" name="height">
+                        <button type="submit" name="mode" value="height">Resize by Height</button>
+                    </div>
+
+                    <!-- Resize by Percentage -->
+                    <div class="resize-option">
+                        <label>Percentage (%):</label>
+                        <input type="number" name="percent">
+                        <button type="submit" name="mode" value="percent">Resize by Percentage</button>
+                    </div>
+
+                    <!-- Custom Width & Height -->
+                    <div class="resize-option">
+                        <label>Width (px):</label>
+                        <input type="number" name="custom_width">
+                        <label>Height (px):</label>
+                        <input type="number" name="custom_height">
+                        <button type="submit" name="mode" value="custom">Custom Width & Height</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </main>
+
+    <?php include COMPONENTS_PATH . 'footer.php'; ?>
+
+    <!-- Script per preview + pulsanti -->
+    <script>
+        const input = document.querySelector('input[name="image"]');
+        const preview = document.getElementById('image-preview');
+        const actions = document.querySelector('.image-actions');
+
+        input.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    actions.style.display = 'flex';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('upload-another').addEventListener('click', () => {
+            input.value = "";
+            preview.src = "";
+            preview.style.display = "none";
+            actions.style.display = "none";
+            input.click(); // riapre il file picker
+        });
+
+        document.getElementById('delete-image').addEventListener('click', () => {
+            input.value = "";
+            preview.src = "";
+            preview.style.display = "none";
+            actions.style.display = "none";
+        });
+    </script>
+
+</body>
+
+</html>

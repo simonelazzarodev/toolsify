@@ -24,7 +24,7 @@
 
     <link rel="icon" type="image/x-icon" href="<?= IMG_URL ?>icons/favicon.ico">
     <link rel="stylesheet" href="<?= CSS_URL ?>">
-    <link rel="canonical" href="https://usetoolsify.com/qrcode.php">
+    <link rel="canonical" href="https://usetoolsify.com/qr-code/">
 
     <style>
         .qr-code-main {
@@ -52,7 +52,7 @@
         .qr-form-group {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-evenly;
             gap: 2em;
             width: 325px;
             height: 175px;
