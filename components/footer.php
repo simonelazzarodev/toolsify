@@ -2,7 +2,7 @@
     <div class="footer__inner">
         <div class="footer__top">
             <div class="footer__brand">
-                <img src="images/logo.png" alt="Toolsify Logo" class="footer__logo" width="200" height="100">
+                <img src="<?= IMG_URL ?>logo.png" alt="Toolsify Logo" class="footer__logo" width="200" height="100">
                 <p class="footer__tagline">
                     Free tools to manage your files, images, audio and videos online.
                 </p>

@@ -1,6 +1,6 @@
 <header>
     <div class="header-img">
-        <a href="index.php"><img src="images/logo.png" alt="toolsify-logo" class="logo-header" width="150" height="75"></a>
+        <a href="index.php"><img src="<?= IMG_URL ?>logo.png" alt="toolsify-logo" class="logo-header" width="150" height="75"></a>
     </div>
     <div class="link-header">
         <a href="#tools-section">ALL TOOLS</a>
@@ -8,7 +8,7 @@
         <a href="#contact" class="contact-header hero-btn-2">CONTACT</a>
     </div>
     <div class="hamburger-btn" aria-controls="mobile-menu" aria-expanded="false" role="button" tabindex="0">
-        <img src="images/icons/hamburger-menu.svg" alt="Open menu" width="30" height="30">
+        <img src="<?= IMG_URL ?>icons/hamburger-menu.svg" alt="Open menu" width="30" height="30">
     </div>
 </header>
 
@@ -16,7 +16,7 @@
     <button class="close-btn" aria-label="Close menu">&times;</button>
     <div class="menu">
         <div class="menu-img">
-            <img src="images/logo.png" alt="toolsify-logo" class="logo-header" width="150" height="75">
+            <img src="<?= IMG_URL ?>logo.png" alt="toolsify-logo" class="logo-header" width="150" height="75">
         </div>
         <div class="link-menu">
             <a href="#tools-section">ALL TOOLS</a>

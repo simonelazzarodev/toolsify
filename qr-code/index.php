@@ -1,3 +1,7 @@
+<?php require __DIR__ . '/../config.php'; ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +22,8 @@
 
     <title>QR Code Generator Online Free | Create & Download | Toolsify</title>
 
-    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="<?= IMG_URL ?>icons/favicon.ico">
+    <link rel="stylesheet" href="<?= CSS_URL ?>">
     <link rel="canonical" href="https://usetoolsify.com/qrcode.php">
 
     <style>
@@ -163,7 +167,7 @@
 </head>
 
 <body>
-    <?php include 'components/header.php'; ?>
+    <?php include COMPONENTS_PATH . 'header.php'; ?>
 
     <section class="qr-code-main">
         <h1>QR Code Generator</h1>
@@ -182,7 +186,7 @@
             <div class="form-qr-option">
                 <div class="qr-form-group">
                     <div class="form-image">
-                        <img src="images/icons/format.png" alt="QR code format icon" loading="lazy">
+                        <img src="<?= IMG_URL ?>icons/format.png" alt="QR code format icon" loading="lazy">
                         <h3>Choose QR Code Format</h3>
                     </div>
 
@@ -196,7 +200,7 @@
 
                 <div class="qr-form-group">
                     <div class="form-image">
-                        <img src="images/icons/size.png" alt="QR code size icon" loading="lazy">
+                        <img src="<?= IMG_URL ?>icons/size.png" alt="QR code size icon" loading="lazy">
                         <h3>Choose QR Code Size</h3>
                     </div>
                     <div class="form-option">
@@ -209,7 +213,7 @@
 
                 <div class="qr-form-group">
                     <div class="form-image">
-                        <img src="images/icons/margin.png" alt="QR code margin icon" loading="lazy">
+                        <img src="<?= IMG_URL ?>icons/margin.png" alt="QR code margin icon" loading="lazy">
                         <h3>Choose QR Code Margin <br><span
                                 style="font-size: 0.5em !important; font-weight: 400 !important;">Default: 4px up to
                                 20px from border</span></h3>
@@ -228,7 +232,7 @@
         </form>
     </section>
 
-    <?php include 'components/footer.php'; ?>
+    <?php include COMPONENTS_PATH . 'footer.php'; ?>
 </body>
 
 </html>

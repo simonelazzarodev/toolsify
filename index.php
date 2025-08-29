@@ -197,7 +197,7 @@
                     decoding="async">
                 <h3>QR Generator</h3>
                 <p>Create custom QR codes for URLs, text, contacts, and more.</p>
-                <a href="qrcode.php" class="tool-btn">Use Tool</a>
+                <a href="qr-code/index.php" class="tool-btn">Use Tool</a>
             </div>
         </div>
 
