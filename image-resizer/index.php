@@ -287,14 +287,25 @@
             form.addEventListener("submit", function (e) {
                 const mode = e.submitter?.value;
                 let valid = true;
-                let message = "";
+
+                form.querySelectorAll(".error-message").forEach(el => el.remove());
+
+                function showError(inputName, message) {
+                    const input = form.querySelector(`input[name='${inputName}']`);
+                    if (input) {
+                        let error = document.createElement("div");
+                        error.className = "error-message";
+                        error.textContent = message;
+                        input.insertAdjacentElement("afterend", error);
+                    }
+                }
 
                 switch (mode) {
                     case "width":
                         const width = form.querySelector("input[name='width']").value;
                         if (!width || width <= 0) {
                             valid = false;
-                            message = "Please enter a width greater than 0.";
+                            showError("width", "Please enter a width greater than 0.");
                         }
                         break;
 
@@ -302,7 +313,7 @@
                         const height = form.querySelector("input[name='height']").value;
                         if (!height || height <= 0) {
                             valid = false;
-                            message = "Please enter a height greater than 0.";
+                            showError("height", "Please enter a height greater than 0.");
                         }
                         break;
 
@@ -310,26 +321,29 @@
                         const percent = form.querySelector("input[name='percent']").value;
                         if (!percent || percent <= 0) {
                             valid = false;
-                            message = "Please enter a percentage greater than 0.";
+                            showError("percent", "Please enter a percentage greater than 0.");
                         }
                         break;
 
                     case "custom":
                         const customWidth = form.querySelector("input[name='custom_width']").value;
                         const customHeight = form.querySelector("input[name='custom_height']").value;
-                        if (!customWidth || customWidth <= 0 || !customHeight || customHeight <= 0) {
+                        if (!customWidth || customWidth <= 0) {
                             valid = false;
-                            message = "Please enter both width and height greater than 0.";
+                            showError("custom_width", "Please enter a width greater than 0.");
+                        }
+                        if (!customHeight || customHeight <= 0) {
+                            valid = false;
+                            showError("custom_height", "Please enter a height greater than 0.");
                         }
                         break;
                 }
 
                 if (!valid) {
                     e.preventDefault();
-                    alert(message);
                 }
             });
-        });        
+        });       
     </script>
 
 </body>
