@@ -60,6 +60,7 @@
             max-width: 1000px;
             margin: 50px auto;
             gap: 2rem;
+            text-align: center;
         }
 
         .intro-text p {
@@ -75,7 +76,7 @@
 
         .image-resizer-container form {
             display: flex;
-            flex-direction: row ;
+            flex-direction: row;
             gap: 2rem;
             align-items: flex-start;
             justify-content: space-between;
@@ -141,7 +142,11 @@
             padding: 0.5rem;
             border: 1px solid #ccc;
             border-radius: 6px;
-            max-width: 200px;
+        }
+
+        .left-panel,
+        .right-panel {
+            width: 100%;
         }
 
         /* Responsive */
@@ -172,7 +177,8 @@
 
             <!-- Colonna sinistra -->
             <div class="left-panel">
-                <img src="<?= IMG_URL ?>icons/image-resizer-icon.png" alt="Image Resizer Icon" style="width:50px;" loading="lazy" decoding="async">
+                <img src="<?= IMG_URL ?>icons/image-resizer-icon.png" alt="Image Resizer Icon" style="width:50px;"
+                    loading="lazy" decoding="async">
                 <h2>Upload Image</h2>
                 <input type="file" name="image" accept="image/*" required>
 
@@ -195,7 +201,8 @@
 
             <!-- Colonna destra -->
             <div class="right-panel">
-                <img src="<?= IMG_URL ?>icons/img-resizer.svg" alt="Image Resizer Icon" style="width:50px;" loading="lazy" decoding="async">
+                <img src="<?= IMG_URL ?>icons/img-resizer.svg" alt="Image Resizer Icon" style="width:50px;"
+                    loading="lazy" decoding="async">
                 <h2>Resize Options</h2>
                 <div class="options-buttons">
 
@@ -238,7 +245,7 @@
     <?php include COMPONENTS_PATH . 'footer.php'; ?>
 
     <!-- Script per preview + pulsanti -->
-    <script>
+    <script defer>
         const input = document.querySelector('input[name="image"]');
         const preview = document.getElementById('image-preview');
         const actions = document.querySelector('.image-actions');
@@ -270,6 +277,59 @@
             preview.style.display = "none";
             actions.style.display = "none";
         });
+    </script>
+
+    <!-- Script per Validazione Form JS -->
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.querySelector(".resizer-form");
+
+            form.addEventListener("submit", function (e) {
+                const mode = e.submitter?.value;
+                let valid = true;
+                let message = "";
+
+                switch (mode) {
+                    case "width":
+                        const width = form.querySelector("input[name='width']").value;
+                        if (!width || width <= 0) {
+                            valid = false;
+                            message = "Please enter a width greater than 0.";
+                        }
+                        break;
+
+                    case "height":
+                        const height = form.querySelector("input[name='height']").value;
+                        if (!height || height <= 0) {
+                            valid = false;
+                            message = "Please enter a height greater than 0.";
+                        }
+                        break;
+
+                    case "percent":
+                        const percent = form.querySelector("input[name='percent']").value;
+                        if (!percent || percent <= 0) {
+                            valid = false;
+                            message = "Please enter a percentage greater than 0.";
+                        }
+                        break;
+
+                    case "custom":
+                        const customWidth = form.querySelector("input[name='custom_width']").value;
+                        const customHeight = form.querySelector("input[name='custom_height']").value;
+                        if (!customWidth || customWidth <= 0 || !customHeight || customHeight <= 0) {
+                            valid = false;
+                            message = "Please enter both width and height greater than 0.";
+                        }
+                        break;
+                }
+
+                if (!valid) {
+                    e.preventDefault();
+                    alert(message);
+                }
+            });
+        });        
     </script>
 
 </body>

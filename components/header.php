@@ -38,10 +38,6 @@
         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
     }
 
-    .header-img {
-        padding-left: 50px;
-    }
-
     .logo-header {
         width: 150px;
         height: 75px;
