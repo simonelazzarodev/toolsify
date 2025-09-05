@@ -51,6 +51,53 @@
     </script>
 
     <style>
+        /* Stile uniforme per input file (image-resizer) */
+        .resizer-form input[type="file"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: border 0.2s ease, box-shadow 0.2s ease;
+            color: #444;
+        }
+
+        /* Hover e focus */
+        .resizer-form input[type="file"]:hover {
+            border-color: #0073e6;
+        }
+
+        .resizer-form input[type="file"]:focus {
+            border-color: #0073e6;
+            box-shadow: 0 0 0 3px rgba(0, 115, 230, 0.2);
+            outline: none;
+        }
+
+        /* Bottone nativo "Choose File" */
+        .resizer-form input[type="file"]::file-selector-button {
+            padding: 0.6rem 1rem;
+            margin-right: 1rem;
+            border: none;
+            border-radius: 6px;
+            background: #0073e6;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        /* Hover bottone upload */
+        .resizer-form input[type="file"]::file-selector-button:hover {
+            background: #005bb5;
+        }
+
         .intro-text {
             display: flex;
             flex-direction: column;
@@ -98,7 +145,8 @@
         }
 
         .preview-wrapper img {
-            max-width: 100%;
+            width: 100% !important;
+            max-width: 350px;
             height: auto;
             border: 1px solid #ddd;
             border-radius: 8px;

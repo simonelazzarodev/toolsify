@@ -24,3 +24,6 @@ Thumbs.db
 
 # To do File
 todo.txt
+
+# Uploaded files for compressione
+/file-compressor/uploads/

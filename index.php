@@ -127,7 +127,7 @@
                     decoding="async">
                 <h3>File Compressor</h3>
                 <p>Reduce file size while keeping original quality, perfect for faster sharing and storage.</p>
-                <a href="in-progress.php" class="tool-btn">Use Tool</a>
+                <a href="file-compressor/?type=pdf" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item file-tools">
@@ -151,7 +151,7 @@
                     decoding="async">
                 <h3>Image Compressor</h3>
                 <p>Compress JPG, PNG, and WebP images while keeping high visual quality.</p>
-                <a href="in-progress.php" class="tool-btn">Use Tool</a>
+                <a href="file-compressor/?type=image" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item image-tools">
