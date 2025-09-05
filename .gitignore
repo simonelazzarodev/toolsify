@@ -27,3 +27,6 @@ todo.txt
 
 # Uploaded files for compressione
 /file-compressor/uploads/
+
+# Php info file
+phpinfo.php

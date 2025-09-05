@@ -254,6 +254,7 @@ if ($type === 'image') {
             transition: width 0.4s ease-in-out;
             border-radius: 10px;
         }
+
     </style>
 </head>
 
@@ -318,7 +319,12 @@ if ($type === 'image') {
                 <a id="download-link" href="#" download class="btn">Download Compressed File</a>
             </div>
 
-            <button type="submit">Compress & Download</button>
+            <p style="color: orange;">Warning: If the file is already optimized, further compression may increase its size.</p>
+
+            <button type="submit">
+                <span id="loader" class="loader" style="display:none;"></span>
+                <span id="btn-text">Compress & Download</span>
+            </button>
         </form>
     </section>
 
