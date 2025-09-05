@@ -8,15 +8,27 @@ if ($type === 'image') {
     $seo_description = "Compress JPG, PNG, and WebP images online for free with Toolsify. Reduce size while keeping high visual quality.";
     $seo_keywords = "Image Compressor, Compress Images, JPG PNG WebP, Free Online Image Tool, Optimize Images";
     $seo_url = "https://usetoolsify.com/file-compressor/?type=image";
-    $seo_image = "https://tuodominio.it/images/preview-image-compressor.png";
     $app_name = "Image Compressor";
     $app_desc = "Free online Image Compressor by Toolsify. Compress JPG, PNG, and WebP images instantly without losing quality.";
+} elseif ($type === 'video') {
+    $seo_title = "Free Online Video Compressor - Toolsify";
+    $seo_description = "Compress videos online for free with Toolsify. Reduce size while maintaining high quality.";
+    $seo_keywords = "Video Compressor, Compress Video, Free Online Video Tool";
+    $seo_url = "https://usetoolsify.com/file-compressor/?type=video";
+    $app_name = "Video Compressor";
+    $app_desc = "Free online Video Compressor by Toolsify. Compress videos instantly while keeping high quality.";
+} elseif ($type === 'audio') {
+    $seo_title = "Free Online Audio Compressor - Toolsify";
+    $seo_description = "Compress audio files online for free with Toolsify. Reduce size while maintaining high quality.";
+    $seo_keywords = "Audio Compressor, Compress Audio, Free Online Audio Tool";
+    $seo_url = "https://usetoolsify.com/file-compressor/?type=audio";
+    $app_name = "Audio Compressor";
+    $app_desc = "Free online Audio Compressor by Toolsify. Compress audio files instantly while keeping high quality.";
 } else {
     $seo_title = "Free Online File Compressor - Toolsify";
     $seo_description = "Compress files online for free with Toolsify. Reduce size of images, PDFs, videos and audio instantly.";
     $seo_keywords = "File Compressor, Compress PDF, Compress Video, Compress Audio, Free Online File Tool";
     $seo_url = "https://usetoolsify.com/file-compressor/";
-    $seo_image = "https://tuodominio.it/images/preview-file-compressor.png";
     $app_name = "File Compressor";
     $app_desc = "Free online File Compressor by Toolsify. Compress images, PDFs, videos and audio instantly while keeping high quality.";
 }
@@ -254,7 +266,6 @@ if ($type === 'image') {
             transition: width 0.4s ease-in-out;
             border-radius: 10px;
         }
-
     </style>
 </head>
 
@@ -265,6 +276,10 @@ if ($type === 'image') {
         <h1>
             <?php if ($type === 'image'): ?>
                 Image Compressor
+            <?php elseif ($type === 'video'): ?>
+                Video Compressor
+            <?php elseif ($type === 'audio'): ?>
+                Audio Compressor
             <?php else: ?>
                 File Compressor
             <?php endif; ?>
@@ -273,6 +288,10 @@ if ($type === 'image') {
         <h2>
             <?php if ($type === 'image'): ?>
                 Free Online Image Compressor – Reduce JPG, PNG, WebP Instantly
+            <?php elseif ($type === 'video'): ?>
+                Free Online Video Compressor – Reduce MP4, AVI, MOV Instantly
+            <?php elseif ($type === 'audio'): ?>
+                Free Online Audio Compressor – Reduce MP3, WAV, AAC Instantly
             <?php else: ?>
                 Free Online File Compressor – Reduce File Size Instantly
             <?php endif; ?>
@@ -282,11 +301,18 @@ if ($type === 'image') {
             <?php if ($type === 'image'): ?>
                 With Toolsify’s free Image Compressor you can shrink JPG, PNG and WebP images without losing quality.
                 Perfect for websites, social media and faster sharing.
+            <?php elseif ($type === 'video'): ?>
+                With Toolsify’s free Video Compressor you can reduce MP4, AVI and MOV file sizes while keeping good quality.
+                Ideal for faster uploads and sharing.
+            <?php elseif ($type === 'audio'): ?>
+                With Toolsify’s free Audio Compressor you can shrink MP3, WAV and AAC files quickly without losing clarity.
+                Perfect for music, podcasts and sharing online.
             <?php else: ?>
                 With Toolsify’s free File Compressor you can reduce the size of your files in seconds.
                 Upload images, PDFs, videos or audio, choose the compression level, and download instantly.
             <?php endif; ?>
         </p>
+
 
         <form class="compressor-form" action="file-compressor.php" method="post" enctype="multipart/form-data">
             <label for="file">Upload File*</label>
@@ -319,7 +345,8 @@ if ($type === 'image') {
                 <a id="download-link" href="#" download class="btn">Download Compressed File</a>
             </div>
 
-            <p style="color: orange;">Warning: If the file is already optimized, further compression may increase its size.</p>
+            <p style="color: orange;">Warning: If the file is already optimized, further compression may increase its
+                size.</p>
 
             <button type="submit">
                 <span id="loader" class="loader" style="display:none;"></span>

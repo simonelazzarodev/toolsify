@@ -102,7 +102,7 @@ try {
             $originalName = sanitizeFileName(basename($file['name']));
             $destination = $destDir . "pdf_compressed_" . $originalName;
 
-            $gsPath = "C:/Program Files/gs/gs10.02.1/bin/gswin64c.exe"; // cambia se serve
+            $gsPath = "gswin64c";
             $cmd = "\"$gsPath\" -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS={$qualityMap[$quality]} -dNOPAUSE -dQUIET -dBATCH -sOutputFile=" . escapeshellarg($destination) . " " . escapeshellarg($inputPath);
 
             exec($cmd . " 2>&1", $output, $result);

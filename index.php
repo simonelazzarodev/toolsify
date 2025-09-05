@@ -179,6 +179,14 @@
             </div>
 
             <div class="tool-item audio-tools">
+                <img src="images/icons/extract-mp4.svg" alt="Audio Tool Icon" width="75" height="75" loading="lazy"
+                    decoding="async">
+                <h3>Audio Compressor</h3>
+                <p>Compress audio files online for free with Toolsify. Reduce size while maintaining high quality.</p>
+                <a href="file-compressor/?type=audio" class="tool-btn">Use Tool</a>
+            </div>
+
+            <div class="tool-item audio-tools">
                 <img src="images/icons/font.svg" alt="Audio Tool Icon" width="75" height="75" loading="lazy"
                     decoding="async">
                 <h3>Speech to Text</h3>
@@ -192,6 +200,14 @@
                 <h3>Video Converter</h3>
                 <p>Convert videos to various formats (MP4, MOV, WebM) for web or mobile devices.</p>
                 <a href="in-progress.php" class="tool-btn">Use Tool</a>
+            </div>
+
+            <div class="tool-item video-tools">
+                <img src="images/icons/video-converter.svg" alt="Video Tool Icon" width="75" height="75" loading="lazy"
+                    decoding="async">
+                <h3>Video Compressor</h3>
+                <p>Compress videos while maintaining high quality for faster loading and sharing.</p>
+                <a href="file-compressor/?type=video" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item utilities-tools">
