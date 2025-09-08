@@ -135,7 +135,7 @@
                     decoding="async">
                 <h3>PDF Merge & Split</h3>
                 <p>Combine multiple PDFs into one or split them in seconds with no formatting loss.</p>
-                <a href="in-progress.php" class="tool-btn">Use Tool</a>
+                <a href="pdf-merge-split/" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item file-tools">
