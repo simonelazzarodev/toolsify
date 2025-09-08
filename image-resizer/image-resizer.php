@@ -1,74 +1,68 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
-    $file = $_FILES['image']['tmp_name'];
-    $filename = $_FILES['image']['name'];
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["image"])) {
+    $fileTmp = $_FILES["image"]["tmp_name"];
+    $fileName = $_FILES["image"]["name"];
+    $fileType = mime_content_type($fileTmp);
 
-    // Estensione e MIME check
-    $allowed_ext = ['jpg', 'jpeg', 'png', 'webp'];
-    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-
-    $finfo = finfo_open(FILEINFO_MIME_TYPE);
-    $mime = finfo_file($finfo, $file);
-    finfo_close($finfo);
-
-    $allowed_mime = ['image/jpeg', 'image/png', 'image/webp'];
-    if (!in_array($ext, $allowed_ext) || !in_array($mime, $allowed_mime)) {
-        die("Invalid file format. Only JPG, PNG and WebP allowed.");
+    $supported = ["image/jpeg", "image/png", "image/gif", "image/webp"];
+    if (!in_array($fileType, $supported)) {
+        die("Formato non supportato. Formati accettati: JPG, PNG, GIF, WebP");
     }
 
-    list($orig_w, $orig_h, $type) = getimagesize($file);
-
-    switch ($type) {
-        case IMAGETYPE_JPEG: $src = imagecreatefromjpeg($file); break;
-        case IMAGETYPE_PNG:  $src = imagecreatefrompng($file); break;
-        case IMAGETYPE_WEBP: $src = imagecreatefromwebp($file); break;
-        default: die("Unsupported format");
-    }
-
-    $mode = $_POST['mode'] ?? '';
-    $new_w = $orig_w;
-    $new_h = $orig_h;
-
-    switch ($mode) {
-        case 'width':
-            $new_w = intval($_POST['width']);
-            $new_h = intval(($new_w / $orig_w) * $orig_h);
+    switch ($fileType) {
+        case "image/jpeg":
+            $src = imagecreatefromjpeg($fileTmp);
             break;
-        case 'height':
-            $new_h = intval($_POST['height']);
-            $new_w = intval(($new_h / $orig_h) * $orig_w);
+        case "image/png":
+            $src = imagecreatefrompng($fileTmp);
             break;
-        case 'percent':
-            $percent = intval($_POST['percent']);
-            $new_w = intval(($orig_w * $percent) / 100);
-            $new_h = intval(($orig_h * $percent) / 100);
+        case "image/gif":
+            $src = imagecreatefromgif($fileTmp);
             break;
-        case 'custom':
-            $new_w = intval($_POST['custom_width']);
-            $new_h = intval($_POST['custom_height']);
+        case "image/webp":
+            $src = imagecreatefromwebp($fileTmp);
             break;
     }
 
-    $dst = imagecreatetruecolor($new_w, $new_h);
-    imagecopyresampled($dst, $src, 0,0,0,0, $new_w,$new_h, $orig_w,$orig_h);
+    $orig_w = imagesx($src);
+    $orig_h = imagesy($src);
 
-    header("Content-Disposition: attachment; filename=resized.$ext");
-    switch ($ext) {
-        case 'jpg': case 'jpeg':
+    $new_w = isset($_POST["width"]) && $_POST["width"] > 0 ? (int)$_POST["width"] : $orig_w;
+    $new_h = isset($_POST["height"]) && $_POST["height"] > 0 ? (int)$_POST["height"] : $orig_h;
+
+    $dest = imagecreatetruecolor($new_w, $new_h);
+
+    if (in_array($fileType, ["image/png", "image/gif", "image/webp"])) {
+        imagealphablending($dest, false);
+        imagesavealpha($dest, true);
+        $transparent = imagecolorallocatealpha($dest, 0, 0, 0, 127);
+        imagefilledrectangle($dest, 0, 0, $new_w, $new_h, $transparent);
+    }
+
+    imagecopyresampled($dest, $src, 0, 0, 0, 0, $new_w, $new_h, $orig_w, $orig_h);
+
+    header("Content-Disposition: attachment; filename=" . basename($fileName));
+
+    switch ($fileType) {
+        case "image/jpeg":
             header("Content-Type: image/jpeg");
-            imagejpeg($dst, null, 90);
+            imagejpeg($dest, null, 90);
             break;
-        case 'png':
+        case "image/png":
             header("Content-Type: image/png");
-            imagepng($dst);
+            imagepng($dest);
             break;
-        case 'webp':
+        case "image/gif":
+            header("Content-Type: image/gif");
+            imagegif($dest);
+            break;
+        case "image/webp":
             header("Content-Type: image/webp");
-            imagewebp($dst, null, 90);
+            imagewebp($dest, null, 90);
             break;
     }
 
     imagedestroy($src);
-    imagedestroy($dst);
+    imagedestroy($dest);
     exit;
 }
