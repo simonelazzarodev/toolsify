@@ -2,6 +2,9 @@
     "require": {
         "endroid/qr-code": "^4.8",
         "setasign/fpdi": "^2.6",
-        "setasign/fpdf": "^1.8"
+        "setasign/fpdf": "^1.8",
+        "phpoffice/phpword": "^1.4",
+        "phpoffice/phpspreadsheet": "^2.1",
+        "spatie/pdf-to-text": "^1.54"
     }
 }

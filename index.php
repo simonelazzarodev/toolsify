@@ -143,7 +143,7 @@
                     decoding="async">
                 <h3>PDF Converter</h3>
                 <p>Convert PDFs to Word, Excel, images, and more, preserving layout and content.</p>
-                <a href="in-progress.php" class="tool-btn">Use Tool</a>
+                <a href="pdf-converter/" class="tool-btn">Use Tool</a>
             </div>
 
             <div class="tool-item image-tools">
