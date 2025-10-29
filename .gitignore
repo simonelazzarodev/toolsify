@@ -23,10 +23,11 @@ Thumbs.db
 .idea/
 
 # To do File
-todo.txt
+/todo.txt
 
 # Uploaded files for compressione
 /file-compressor/uploads/
 
 # Php info file
-phpinfo.php
+/php-info.php
+/phpinfo.php
