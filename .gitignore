@@ -31,3 +31,7 @@ Thumbs.db
 # Php info file
 /php-info.php
 /phpinfo.php
+
+# upload folder
+/uploads/
+/downloads/

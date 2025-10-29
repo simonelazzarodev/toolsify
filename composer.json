@@ -5,6 +5,7 @@
         "setasign/fpdf": "^1.8",
         "phpoffice/phpword": "^1.4",
         "phpoffice/phpspreadsheet": "^2.1",
-        "spatie/pdf-to-text": "^1.54"
+        "spatie/pdf-to-text": "^1.54",
+        "ncjoes/poppler-php": "^1.1"
     }
 }

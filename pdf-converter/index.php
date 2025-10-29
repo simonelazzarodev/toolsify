@@ -176,10 +176,11 @@
 
     <div class="intro-text">
         <h1>PDF Converter</h1>
-        <h2>Free Online PDF Converter – Convert to Word, Excel, Images & More</h2>
+        <h2>High-Quality Conversion powered by Poppler</h2>
         <p class="description">
-            With Toolsify’s free PDF Converter, you can easily convert your PDF files into multiple formats like Word, Excel, JPG or PNG without losing layout or content. 
-            Fast, secure and free – perfect for work, study or personal use.
+            Convert your PDF into <strong>Word</strong>, <strong>Excel</strong>, or <strong>high-resolution images</strong> (JPG/PNG)
+            with page-accurate rendering. No watermarks, no quality loss.
+            Fast, secure and privacy-friendly — your file stays on this server.
         </p>
     </div>
 
@@ -197,7 +198,7 @@
                 </div>
 
                 <p class="disclaimer">
-                    Supported format: <strong>PDF</strong>.
+                    Supported format: <strong>PDF</strong><br>
                 </p>
             </div>
 
@@ -207,8 +208,8 @@
                 <div class="convert-options">
                     <button type="submit" name="convert" value="word">Convert to Word (.docx)</button>
                     <button type="submit" name="convert" value="excel">Convert to Excel (.xlsx)</button>
-                    <button type="submit" name="convert" value="jpg">Convert to JPG</button>
-                    <button type="submit" name="convert" value="png">Convert to PNG</button>
+                    <button type="submit" name="convert" value="jpg">Convert to JPG (High-Res)</button>
+                    <button type="submit" name="convert" value="png">Convert to PNG (High-Res)</button>
                 </div>
             </div>
 
@@ -236,4 +237,5 @@
         });
     </script>
 </body>
+
 </html>
